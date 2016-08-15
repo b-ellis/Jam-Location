@@ -1,8 +1,9 @@
 var map;
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.730610, lng: -73.935242},
-       	zoom: 5
+       	zoom: 4
        });
 };
 
@@ -19,26 +20,25 @@ var getEvents = function(location) {
 	$.ajax({
 		url: "http://api.jambase.com/events",
 		data: myData,
-		dataType: "json",
 		type: "GET"
 	})
 
 	.done(function(result){
 		console.log(result);
-		var latitude = result.events.object.Venue.Latitude
-		var longitude = result.events.Object.Venue.Longitude
-		$.each(latitude, longitude, function(i, items){
-			console.log(this);
-		});
 	});
 
 }
 
-var map = function(map){
+var geoLocate = function(map){
 
 	var myData = {
-		key: "maps.googleapis.com/maps/api/geocode/json"
+		key: "AIzaSyBV-gqXIAS-NqRH-VBSnNq7euAWE0vITOA"
 	}
+
+	.ajax({
+		url: "maps.googleapis.com/maps/api/geocode/json",
+		data: myData;
+	})
 }
 
 $(function(){
