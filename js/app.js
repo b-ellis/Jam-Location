@@ -1,17 +1,30 @@
 var map;
+var marker;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.730610, lng: -73.935242},
-       	zoom: 4
-       });
+       	zoom: 8
+    });
+    var input = document.getElementById('search');
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+};
+
+function setMarker(latlong){
+	marker = new google.maps.Marker({
+		position: new google.maps.Marker(latlong),
+		panTo: location,
+		animation: google.maps.Animation.DROP,
+		map: map
+	});
 };
 
 var getEvents = function(location) {
 	
 	var myData = {
 		zipCode: location,
-		radius: 50,
+		radius: 25,
 		page: 0,
 		api_key: "vrchjvtc2yyx7wzs56hsuprd",
 		o: "json"
@@ -24,26 +37,19 @@ var getEvents = function(location) {
 	})
 
 	.done(function(result){
-		console.log(result);
+		$.each(result.Events, function(index, event){
+			var artist = event.Artists.Name;
+			var venue = event.Venue.Name;
+			var venueUrl = event.Venue.Url;
+			var address = event.Venue.Address + ", " + event.Venue.City + ", " + event.Venue.State + ", " + event.Venue.CountryCode + ", " + event.Venue.ZipCode;
+			var latlong = {lat: event.Venue.Latitude, lng: event.Venue.Longitude};
+			setMarker(latlong);
+		});
 	});
-
-}
-
-var geoLocate = function(map){
-
-	var myData = {
-		key: "AIzaSyBV-gqXIAS-NqRH-VBSnNq7euAWE0vITOA"
-	}
-
-	.ajax({
-		url: "maps.googleapis.com/maps/api/geocode/json",
-		data: myData;
-	})
 }
 
 $(function(){
-	initMap();
-	$(".search").submit(function(event){
+	$("#search").submit(function(event){
 		event.preventDefault();
 		var location = $(this).find("input[name='location']").val();
 		getEvents(location);
