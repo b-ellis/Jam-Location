@@ -46,7 +46,7 @@ var getEvents = function(location) {
 		type: "GET"
 	});
 
-	.done(function(result){
+	$.done(function(result){
 		$.each(result.Events, function(index, event){
 			var artist = event.Artists.Name;
 			var venue = event.Venue.Name;
