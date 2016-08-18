@@ -2,7 +2,7 @@ var map;
 var marker;
 var infoWindow;
 
-function initMap() {
+var initMap = function() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.730610, lng: -73.935242},
        	zoom: 8
@@ -59,6 +59,7 @@ var getEvents = function(location) {
 }
 
 $(function(){
+	initMap();
 	$("#search").submit(function(event){
 		event.preventDefault();
 		var location = $(this).find("input[name='location']").val();
