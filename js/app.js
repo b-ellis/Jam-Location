@@ -1,5 +1,6 @@
 var map;
 var marker;
+var infoWindow;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -8,23 +9,32 @@ function initMap() {
     });
     var input = document.getElementById('search');
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
 };
 
 function setMarker(latlong){
 	marker = new google.maps.Marker({
 		position: new google.maps.Marker(latlong),
-		panTo: location,
 		animation: google.maps.Animation.DROP,
 		map: map
 	});
+	displayInfo();
 };
+
+var displayInfo = function(){
+	infoWindow = new google.maps.InfoWindow({
+		content: "event info"
+	});
+	marker.addListener(marker, 'click', function(marker, infoWindow) {
+    	infoWindow.open(marker, map);
+    	windows.push(infoWindow);
+  	});
+}
 
 var getEvents = function(location) {
 	
 	var myData = {
 		zipCode: location,
-		radius: 25,
+		radius: 30,
 		page: 0,
 		api_key: "vrchjvtc2yyx7wzs56hsuprd",
 		o: "json"
