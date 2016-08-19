@@ -9,6 +9,7 @@ function initMap() {
     });
     var input = document.getElementById('search');
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    getLocation();
 };
 
 function getLocation(){
