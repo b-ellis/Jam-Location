@@ -31,7 +31,7 @@ var displayInfo = function(){
 }
 
 var getEvents = function(location) {
-	
+
 	var myData = {
 		zipCode: location,
 		radius: 30,
@@ -44,7 +44,7 @@ var getEvents = function(location) {
 		url: "https://api.jambase.com/events",
 		data: myData,
 		type: "GET"
-	});
+	})
 
 	.done(function(result){
 		$.each(result.Events, function(index, event){
