@@ -70,7 +70,7 @@ var getEvents = function(location) {
 	};
 
 	$.ajax({
-		url: "http://api.jambase.com/events",
+		url: "https://api.jambase.com/events",
 		data: myData,
 		type: "GET"
 	})
