@@ -34,7 +34,7 @@ function getLocation(){
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
+  infoWindow.setPosition(pos);v
   infoWindow.setContent(browserHasGeolocation ?
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
@@ -70,7 +70,7 @@ var getEvents = function(location) {
 	};
 
 	$.ajax({
-		url: "https://api.jambase.com/events",
+		url: "http://api.jambase.com/events",
 		data: myData,
 		type: "GET"
 	})
