@@ -2,14 +2,6 @@ var map;
 var marker;
 var infoWindow;
 
-navigator.geolocation.getCurrentPosition(function(position) {
-    var pos = {
-       	lat: position.coords.latitude,
-       	lng: position.coords.longitude
-  	};
-
-  	console.log(position);
-
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.730610, lng: -73.935242},
@@ -96,6 +88,15 @@ var getEvents = function(location) {
 }
 
 $(function(){
+	navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+       	lat: position.coords.latitude,
+       	lng: position.coords.longitude
+  	};
+
+  	console.log(pos);
+
+  	console.log(position);
 	$("#search").submit(function(event){
 		event.preventDefault();
 		var location = $(this).find("input[name='location']").val();
