@@ -89,10 +89,13 @@ var getEvents = function(location) {
 
 $(function(){
 	initMap();
+	function getLocation() {
 	    if (navigator.geolocation) {
-	        navigator.geolocation.watchPosition(showPosition);
+	        navigator.geolocation.watchPosition();
 	    }
-    	console.log(navigator.geolocation);
+    	console.log(this);
+	}
+
 
 	$("#search").submit(function(event){
 		event.preventDefault();
