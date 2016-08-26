@@ -96,6 +96,10 @@ $(function(){
     	console.log(this);
 	}
 
+	function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+	}
 
 	$("#search").submit(function(event){
 		event.preventDefault();
