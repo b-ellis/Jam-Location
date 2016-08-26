@@ -88,6 +88,7 @@ var getEvents = function(location) {
 }
 
 $(function(){
+	initMap();
 	navigator.geolocation.getCurrentPosition(function(position) {
     var pos = {
        	lat: position.coords.latitude,
@@ -95,6 +96,8 @@ $(function(){
   	};
 
   	console.log(pos);
+
+  	});
 
   	console.log(position);
 	$("#search").submit(function(event){
