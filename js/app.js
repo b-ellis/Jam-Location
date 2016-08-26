@@ -90,7 +90,7 @@ var getEvents = function(location) {
 $(function(){
 	function getLocation() {
 	    if (navigator.geolocation) {
-	        navigator.geolocation.watchPosition();
+	        navigator.geolocation.watchPosition(showPosition);
 	    }
     	console.log(this);
 	}
