@@ -20,7 +20,8 @@ function getLocation(){
         	lat: position.coords.latitude,
         	lng: position.coords.longitude
       	};
-      	console.log(this);
+
+      	console.log(pos);
 
     	infoWindow.setPosition(pos);
     	infoWindow.setContent('Location found.');
