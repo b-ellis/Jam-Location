@@ -88,7 +88,6 @@ var getEvents = function(location) {
 }
 
 $(function(){
-	initMap();
 	function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(showPosition);
