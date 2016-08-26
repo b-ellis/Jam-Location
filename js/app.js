@@ -20,6 +20,7 @@ function getLocation(){
         	lat: position.coords.latitude,
         	lng: position.coords.longitude
       	};
+      	console.log(this);
 
     	infoWindow.setPosition(pos);
     	infoWindow.setContent('Location found.');
@@ -88,21 +89,6 @@ var getEvents = function(location) {
 }
 
 $(function(){
-	function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    	}
-    	console.log(this);
-	}
-
-	function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude; 
-	}
-
-  	console.log(position);
 	$("#search").submit(function(event){
 		event.preventDefault();
 		var location = $(this).find("input[name='location']").val();
