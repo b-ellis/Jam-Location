@@ -103,6 +103,7 @@ $(function(){
     "<br>Longitude: " + position.coords.longitude; 
 	}
 
+  	console.log(position);
 	$("#search").submit(function(event){
 		event.preventDefault();
 		var location = $(this).find("input[name='location']").val();
