@@ -48,6 +48,8 @@ var yourZip = function (request, response, pos) {
     });
 }
 
+yourZip(request, response, pos);
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
