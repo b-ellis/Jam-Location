@@ -43,7 +43,7 @@ var yourZip = function (request, response, pos) {
   	}, function (results, status) {
     	response($.map(results, function (item) {
       		return (item.address_components.postal_code);//This is what you want to look at
-      		console.log(item.address_components.postal_code)
+      		console.log(item.address_components.postal_code);
       	}));
     });
 }
