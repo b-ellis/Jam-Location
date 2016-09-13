@@ -2,6 +2,7 @@ var map;
 var marker;
 var infoWindow;
 
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.730610, lng: -73.935242},
@@ -33,22 +34,19 @@ function getLocation(){
     	// Browser doesn't support Geolocation
     	handleLocationError(false, infoWindow, map.getCenter());
   	}	
-}
 
-var yourZip = function (request, response, pos) {
-	geocoder.geocode({ 
-  		'address': request.term, 
-  		'latLng': pos, 
-  		'region': 'US' 
-  	}, function (results, status) {
-    	response($.map(results, function (item) {
-      		return (item.address_components.postal_code);//This is what you want to look at
-      		console.log(item.address_components.postal_code);
-      	}));
-    });
+  	var yourZip = function (pos) {
+		geocoder.geocode({ 
+	  		'latLng': pos, 
+	  		'region': 'US' 
+	  	}, function (results, status) {
+	    	response($.map(results, function (item) {
+	      		return (item.address_components.postal_code);//This is what you want to look at
+	      		console.log(item.address_components.postal_code);
+	      	}));
+	    });
+	}
 }
-
-yourZip(request, response, pos);
 
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
