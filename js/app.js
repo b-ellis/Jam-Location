@@ -24,7 +24,7 @@ function getLocation(){
       	console.log(pos);
 
     	infoWindow.setPosition(pos);
-    	infoWindow.setContent('Location found.');
+    	infoWindow.setContent('Location found. Click "Search for Concerts" to find concerts near you.');
     	map.setCenter(pos);
     	}, function() {
       		handleLocationError(true, infoWindow, map.getCenter());
@@ -34,6 +34,20 @@ function getLocation(){
     	handleLocationError(false, infoWindow, map.getCenter());
   	}	
 }
+
+var yourZip = function (request, response, pos) {
+	geocoder.geocode({ 
+  		'address': request.term, 
+  		'latLng': pos, 
+  		'region': 'US' 
+  	}, function (results, status) {
+    	response($.map(results, function (item) {
+      		return (item.address_components.postal_code);//This is what you want to look at
+      		console.log(item.address_components.postal_code)
+      	}));
+    });
+}
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
