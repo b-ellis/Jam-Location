@@ -43,7 +43,7 @@ var getEvents = function(location) {
 	};
 
 	$.ajax({
-		url: "http://api.jambase.com/events",
+		url: "https://www.google.com/search?q=%http://api.jambase.com/events",
 		data: myData,
 		type: "GET"
 	})
