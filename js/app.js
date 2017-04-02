@@ -47,7 +47,7 @@ var getEvents = function(location) {
 		data: myData,
 		type: "GET",
 		headers: {
-			'Access-Control-Allow-Origin': *,
+			'Access-Control-Allow-Origin': '*',
 			'Access-Control-Allow-Methods': "GET",
 			'Access-Control-Allow-Headers': "Content-Type"
 		}
