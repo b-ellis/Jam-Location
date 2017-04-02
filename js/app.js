@@ -39,7 +39,7 @@ var getEvents = function(location) {
 		radius: 30,
 		page: 0,
 		api_key: "vrchjvtc2yyx7wzs56hsuprd",
-		o: "json"
+		o: "jsonp"
 	};
 
 	$.ajax({
