@@ -46,9 +46,11 @@ var getEvents = function(location) {
 		url: "https://www.google.com/search?q=http://api.jambase.com/events",
 		data: myData,
 		type: "GET",
-		'Access-Control-Allow-Origin': 'http://api.jambase.com/events',
-		'Access-Control-Allow-Methods': "GET",
-		'Access-Control-Allow-Headers': "Content-Type"
+		headers: {
+			'Access-Control-Allow-Origin': 'http://api.jambase.com/events',
+			'Access-Control-Allow-Methods': "GET",
+			'Access-Control-Allow-Headers': "Content-Type"
+		}
 	})
 
 	.done(function(result){
