@@ -5,6 +5,7 @@ html, body {
 }
 #map {
 	height: 100%;
+  position: inherit;
 }
 .search{
 	width: 300px;
