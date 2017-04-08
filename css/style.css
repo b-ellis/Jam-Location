@@ -1,11 +1,15 @@
 html, body {
 	height: 100%;
 	margin: 0;
-    padding: 0;
+  padding: 0;
 }
 #map {
-	height: 100%;
+  margin: auto;
+	height: 65%;
+  width: 65%;
   position: inherit;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 2px 0 0 2px;
 }
 .search{
 	width: 300px;
@@ -33,19 +37,39 @@ html, body {
 	border-color: #4d90fe;
 }
 .pac-container {
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
 }
 #type-selector {
   color: #fff;
-  /*background-color: #4d90fe;*/
   padding: 5px 11px 0px 11px;
 }
 
 #type-selector label {
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   font-size: 13px;
   font-weight: 300;
 }
 #target {
   width: 345px;
+}
+.title{
+  color: rgba(0, 0, 0, 0.3);
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+.titlediv{
+  margin-bottom: 20px;
+}
+img{
+  width: 60%;
+}
+footer{
+  background: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.footer-div{
+  float: right;
+  margin: 20px;
 }
