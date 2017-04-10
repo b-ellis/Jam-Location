@@ -1,5 +1,6 @@
 var map;
 var marker;
+var markers = [];
 var infoWindow;
 
 
@@ -9,7 +10,7 @@ var initMap = function() {
        	zoom: 8
     });
     var input = document.getElementById('search');
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);   
 };
 
 function getInfoCallback(map, content) {
@@ -26,11 +27,27 @@ function setMarker(latlong, artist, venue, venueUrl, address){
 	marker = new google.maps.Marker({
 		position: new google.maps.Marker(latlong),
 		animation: google.maps.Animation.DROP,
-		map: map
+		map: map,
 	});
 	var contentString = '<div>'+ artist + '<br /><a href='+venueUrl +'>'+ venue +'</a><br />' + address + '<br />Concert Info Provided By <a href="http://www.JamBase.com" target="_top" title="JamBase Concert Search">JamBase<span style="font-size: 12px; white-space: normal;" _mce_style="font-size: 12px; white-space: normal;"> </span></a></div>';
 	google.maps.event.addListener(marker, 'click', getInfoCallback(map, contentString));
+	markers.push(marker);
 };
+
+function setMapOnAll(map) {
+	for (var i = 0; i < markers.length; i++) {
+		markers[i].setMap(map);
+	}
+}
+
+function clearMarkers() {
+    setMapOnAll(null);
+}
+
+function deleteMarkers() {
+	clearMarkers();
+	markers = [];
+}
 
 var getEvents = function(location) {
 
@@ -83,11 +100,22 @@ function relocate(location){
     });
 }
 
+
+
 $(function(){
 	$("#search").submit(function(event){
 		event.preventDefault();
+		deleteMarkers();
 		var location = $(this).find("input[name='location']").val();
 		getEvents(location);
 		relocate(location)
 	});
+	$('#pac-input').delay().focus();
+	$('.newyork').click(function(event){
+		event.preventDefault();
+		deleteMarkers();
+		newyork = '10001';
+		getEvents(newyork);
+		relocate(newyork)
+	})
 });
