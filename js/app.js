@@ -108,7 +108,8 @@ $(function(){
 		deleteMarkers();
 		var location = $(this).find("input[name='location']").val();
 		getEvents(location);
-		relocate(location)
+		relocate(location);
+		$(this).value('')
 	});
 	$('#pac-input').delay().focus();
 	$('.newyork').click(function(event){
@@ -116,6 +117,6 @@ $(function(){
 		deleteMarkers();
 		newyork = '10001';
 		getEvents(newyork);
-		relocate(newyork)
+		relocate(newyork);
 	})
 });
