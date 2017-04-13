@@ -84,16 +84,6 @@ form{
   display: inline-block;
   border-bottom: 2px #337abb; 
 }
-.title-div{
-  display: inline-block;
-}
-.buttondiv{
-  display: inline-block;
-}
-.profilediv{
-  display: inline-block;
-  float: right;
-}
 .info{
   color: rgba(0, 0, 0, 0.3);
   font-family: 'Roboto', sans-serif;
