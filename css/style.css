@@ -2,16 +2,35 @@ html, body {
 	height: 100%;
 	margin: 0;
   padding: 0;
+  background: #a3ccff;
+}
+h4{
+  font-size: 20px;
+}
+button{
+  border-radius: 5px;
+  background-color: #f3f1ed;
 }
 #map {
   margin: auto;
-	height: 72%;
+	height: 100%;
   /*width: 65%;*/
   position: inherit;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   border-radius: 2px 0 0 2px;
 }
+form{
+  display: none;
+}
+#search{
+  display: none;
+  z-index: 0;
+  position: absolute;
+  left: 33% !important;
+  top: 0px;
+}
 .search{
+  display: none !important;
 	width: 300px;
 	margin: auto;
 }
@@ -23,7 +42,7 @@ html, body {
     height: 32px;
     outline: none;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    border: 2px solid #AEC3FA; 
+    border: 2px solid #a3ccff; 
     /*border-radius: 5px;*/
 }
 #pac-input {
@@ -55,24 +74,44 @@ html, body {
   width: 345px;
 }
 .title{
-  color: rgba(0, 0, 0, 0.3);
+  color: #fff;
   font-family: 'Roboto', sans-serif;
-  text-align: center;
+  size: 20px;
+  font-weight: 400;
 }
 .titlediv{
-  margin-bottom: 20px;
+  width: 100%;
+  display: inline-block;
+  border-bottom: 2px #337abb; 
+}
+.title-div{
+  display: inline-block;
+}
+.buttondiv{
+  display: inline-block;
+}
+.profilediv{
+  display: inline-block;
+  float: right;
 }
 .info{
   color: rgba(0, 0, 0, 0.3);
   font-family: 'Roboto', sans-serif;
   text-align: center;
+  font-weight: 300;
 }
 .profile{
-  color: rgba(0, 0, 0, 0.3);
+  color: #fff;
   font-family: 'Roboto', sans-serif;
   text-align: center;
+  font-weight: 200;
 }
-.newyork{
+.find{
+  color: #337abb;
+  cursor: pointer;
+}
+.concert-search{
+  color: #337abb;
   cursor: pointer;
 }
 img{
