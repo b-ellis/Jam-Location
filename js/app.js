@@ -13,39 +13,8 @@ var initMap = function() {
 		}
     });
     var input = document.getElementById('search');
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input); 
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(input); 
 };
-
-function geoloacte(){
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-			var pos = {
-				lat: position.coords.latitude,
-				lng: position.coords.longitude
-	    	};
-	    	// infoWindow.setPosition(pos);
-	    	map.setCenter(pos);
-	    	var geocoder = new google.maps.Geocoder;
-	    	geocoder.geocode({'location': pos}, function(results, status) {
-	    		var zip = results[0].address_components[6].short_name;
-	    		getEvents(zip);
-	    	});
-	    },function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
-}
 
 function getInfoCallback(map, content) {
     var infowindow = new google.maps.InfoWindow({
@@ -147,12 +116,4 @@ $(function(){
 		getEvents(location);
 		relocate(location);
 	});
-	$('.find').on('click', function(event){
-		event.preventDefault();
-		geoloacte();
-	});
-	$('.concert-search').on('click', function(event){
-		event.preventDefault();
-		$('#search').show();
-	})
 });

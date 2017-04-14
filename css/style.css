@@ -20,19 +20,19 @@ button{
   border-radius: 2px 0 0 2px;
 }
 form{
-  display: none;
+  /*display: none;*/
 }
-#search{
+/*#search{
   display: none;
   z-index: 0;
   position: absolute;
   left: 33% !important;
-  top: 0px;
+  top: 0px*/;
 }
 .search{
-  display: none !important;
+  /*display: none !important;*/
 	width: 300px;
-	margin: auto;
+	/*margin: auto;*/
 }
 .search-box{
     /*border: 1px solid transparent;*/
@@ -85,7 +85,7 @@ form{
   border-bottom: 2px #337abb; 
 }
 .info{
-  color: rgba(0, 0, 0, 0.3);
+  color: #fff;
   font-family: 'Roboto', sans-serif;
   text-align: center;
   font-weight: 300;
