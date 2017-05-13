@@ -2,7 +2,7 @@ html, body {
 	height: 100%;
 	margin: 0;
   padding: 0;
-  background: #a3ccff;
+  background: #3877c7;
 }
 h4{
   font-size: 20px;
@@ -19,31 +19,26 @@ button{
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   border-radius: 2px 0 0 2px;
 }
-form{
-  /*display: none;*/
-}
-/*#search{
-  display: none;
-  z-index: 0;
+output{
+  padding-top: 7px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  left: 38rem;
   position: absolute;
-  left: 33% !important;
-  top: 0px*/;
+  top: 1.2rem;
 }
 .search{
-  /*display: none !important;*/
 	width: 300px;
-	/*margin: auto;*/
 }
 .search-box{
-    /*border: 1px solid transparent;*/
-    border-radius: 3px 0 0 3px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    height: 32px;
-    outline: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    border: 2px solid #a3ccff; 
-    /*border-radius: 5px;*/
+  border-radius: 3px 0 0 3px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  border: 2px solid #a3ccff; 
 }
 #pac-input {
 	margin-top: 8px;
@@ -116,4 +111,74 @@ footer{
 .footer-div{
   float: right;
   margin: 20px;
+}
+
+.profile a{
+  color: #040404;
+}
+
+.landing{
+  background: antiquewhite;
+  height: 100%;
+}
+
+.header{
+  background: black;
+  height: 45em;
+}
+
+.about-div{
+  position: absolute;
+  top: 16em;
+  width: 100%;
+}
+.about{
+  text-align: center;
+  padding-top: 3rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 5em;
+  color: white;
+}
+
+img{
+  height: 45em;
+}
+
+.expand{
+  width: 100%;
+  opacity: 0.5;
+}
+
+.what{
+  width: 45%;
+  padding: 9rem 0 0px 5rem;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+.how{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  width: 50%; 
+}
+
+.descripton{
+  text-align: center;
+  width: 50%;
+  font-family: 'Roboto', sans-serif;
+  padding: 3rem;
+}
+
+.divbutton{
+  text-align: center;
+  padding: 3rem;
+  width: 50%;
+}
+
+button{
+  border: none;
+  box-shadow: 2px 2px black;
+  background: #3877c7;
+  color: white;
+  font-family: 'Roboto', sans-serif;
 }

@@ -32,7 +32,7 @@ function setMarker(latlong, artist, venue, venueUrl, address, date){
 		animation: google.maps.Animation.DROP,
 		map: map,
 	});
-	var contentString = '<div>'+ artist + '<br />' + date + '<br /><a href='+venueUrl +'>'+ venue +'</a><br />' + address + '<br />Concert Info Provided By <a href="http://www.JamBase.com" target="_top" title="JamBase Concert Search">JamBase<span style="font-size: 12px; white-space: normal;" _mce_style="font-size: 12px; white-space: normal;"> </span></a></div>';
+	var contentString = '<div>Artist: '+ artist + '<br />Date: ' + date + '<br />Venue: <a href='+venueUrl +'>'+ venue +'</a><br />Address: ' + address + '<br />Concert Info Provided By <a href="http://www.JamBase.com" target="_top" title="JamBase Concert Search">JamBase<span style="font-size: 12px; white-space: normal;" _mce_style="font-size: 12px; white-space: normal;"> </span></a></div>';
 	google.maps.event.addListener(marker, 'click', getInfoCallback(map, contentString));
 	markers.push(marker);
 };
@@ -52,11 +52,11 @@ function deleteMarkers() {
 	markers = [];
 }
 
-var getEvents = function(location) {
+var getEvents = function(location, radius) {
 
 	var myData = {
 		zipCode: location,
-		radius: 30,
+		radius: radius,
 		page: 0,
 		api_key: "vrchjvtc2yyx7wzs56hsuprd",
 		o: "jsonp"
@@ -109,11 +109,22 @@ function isNumber(event) {
 }
 
 $(function(){
+	$('#map').hide();
+	$('#search').hide();
+
 	$("#search").submit(function(event){
 		event.preventDefault();
 		deleteMarkers();
 		var location = $(this).find("input[name='location']").val();
-		getEvents(location);
+		var radius = $(this).find("input[name='rangeInputName']").val();
+		getEvents(location, radius);
 		relocate(location);
 	});
+
+	$('button').on('click', function(){
+		$('#search').show();
+		$('#map').show();
+		initMap();
+		$('.landing').hide();
+	})
 });
