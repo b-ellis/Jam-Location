@@ -2,6 +2,7 @@ var map;
 var marker;
 var markers = [];
 var infoWindow;
+var artLink = $('.artistTD').children();
 
 
 var initMap = function() {
@@ -13,7 +14,9 @@ var initMap = function() {
 		}
     });
     var input = document.getElementById('search');
+    var display = document.getElementById('display');
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(input); 
+    map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(display);
 };
 
 function getInfoCallback(map, content) {
@@ -77,7 +80,23 @@ var getEvents = function(location, radius) {
 			var address = event.Venue.Address + ", " + event.Venue.City + ", " + event.Venue.State + ", " + event.Venue.CountryCode + ", " + event.Venue.ZipCode;
 			var latlong = {lat: event.Venue.Latitude, lng: event.Venue.Longitude};
 			setMarker(latlong, artist, venue, venueUrl, address, date);
+			displayList(artist, date);
 		});
+		$('.artistTD').children().on('click', function(){
+			var self = $(this).text();
+			for(var i=0; i<result.Events.length; i++){
+				var artist = result.Events[i].Artists[0].Name;
+				var date = result.Events[i].Date.split('T')[0];
+				var venue = result.Events[i].Venue.Name;
+				var venueUrl = result.Events[i].Venue.Url;
+				var address = result.Events[i].Venue.Address + ", " + result.Events[i].Venue.City + ", " + result.Events[i].Venue.State + ", " + result.Events[i].Venue.CountryCode + ", " + result.Events[i].Venue.ZipCode;
+				var latlong = {lat: result.Events[i].Venue.Latitude, lng: result.Events[i].Venue.Longitude};
+				if(self === artist){
+					clearMarkers();
+					setMarker(latlong, artist, venue, venueUrl, address, date);
+				}
+			}
+		})
 	});
 }
 
@@ -108,9 +127,15 @@ function isNumber(event) {
     return true;
 }
 
+function displayList(artist, date) {
+	var list = '<tr><td class="artistTD"><a class="artist '+ artist +'" style="cursor:pointer;">' + artist + '</a></td><td>' + date + '</td></tr>';
+	$('#tbody').append(list);
+}
+
 $(function(){
 	$('#map').hide();
 	$('#search').hide();
+	$('#display').hide();
 
 	$("#search").submit(function(event){
 		event.preventDefault();
@@ -119,6 +144,7 @@ $(function(){
 		var radius = $(this).find("input[name='rangeInputName']").val();
 		getEvents(location, radius);
 		relocate(location);
+		$('#display').show();
 	});
 
 	$('button').on('click', function(){
@@ -126,5 +152,9 @@ $(function(){
 		$('#map').show();
 		initMap();
 		$('.landing').hide();
+	});
+
+	$('.artistTD').children().on('click', function(){
+		console.log(this)
 	})
 });
