@@ -3,6 +3,7 @@ var marker;
 var markers = [];
 var infoWindow;
 var artLink = $('.artistTD').children();
+var currWindow = false;
 
 
 var initMap = function() {
@@ -16,7 +17,7 @@ var initMap = function() {
     var input = document.getElementById('search');
     var display = document.getElementById('display');
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(input); 
-    map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(display);
+    map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(display);
 };
 
 function getInfoCallback(map, content) {
@@ -24,6 +25,11 @@ function getInfoCallback(map, content) {
     	content: content
     });
     return function() {
+    	 if( currWindow ) {
+           currWindow.close();
+        }
+
+        currWindow = infowindow;
         infowindow.setContent(content); 
         infowindow.open(map, this);
     };
@@ -136,6 +142,7 @@ $(function(){
 	$('#map').hide();
 	$('#search').hide();
 	$('#display').hide();
+	$('.info').hide();
 
 	$("#search").submit(function(event){
 		event.preventDefault();
@@ -152,6 +159,7 @@ $(function(){
 		$('#map').show();
 		initMap();
 		$('.landing').hide();
+		$('.info').show();
 	});
 
 	$('.artistTD').children().on('click', function(){
