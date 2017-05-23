@@ -24,7 +24,7 @@ output{
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
-  left: 32rem;
+  left: 28rem;
   position: absolute;
   top: 1.2rem;
 }
@@ -47,7 +47,7 @@ output{
 	font-weight: 300;
 	padding: 20px 10px;
 	text-overflow: ellipsis;
-	width: 386px;
+	width: 345px;
 }
 #pac-input:focus {
 	border-color: #4d90fe;
@@ -138,8 +138,20 @@ footer{
   text-align: center;
   padding-top: 3rem;
   font-family: 'Roboto', sans-serif;
-  font-size: 5em;
+  font-size: 3.5rem;
   color: white;
+}
+
+.aboutlink{
+  color: white;
+  text-decoration: none;
+}
+
+.aboutlink:hover{
+  color: white;
+  text-decoration: none;
+  text-shadow: 0px 4px #1051a3;
+  transition: ease height 1s;
 }
 
 img{
@@ -199,6 +211,12 @@ button{
   padding: 14px 57px;
   font-size: 17px;
 }
+
+button:hover{
+  transition: ease 1s;
+  font-size: 2rem;
+}
+
 .glyphicon{
   font-size: 5rem;
   color: #fff;
