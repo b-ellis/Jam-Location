@@ -119,6 +119,12 @@ footer{
   color: #040404;
 }
 
+.profile a:hover{
+  text-decoration: none;
+  transition: ease 1s;
+  text-shadow: 0px 1px #1051a3;
+}
+
 .landing{
   /*background: antiquewhite;*/
   height: 100%;
@@ -151,7 +157,7 @@ footer{
   color: white;
   text-decoration: none;
   text-shadow: 0px 4px #1051a3;
-  transition: ease height 1s;
+  transition: ease 1s;
 }
 
 img{
